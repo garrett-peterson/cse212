@@ -9,7 +9,8 @@ public class PriorityQueueTests
     // Scenario: Create a queue with the highest priority being in the last spot
     // Bob(2), Tim(1), Sue(3)
     // Expected Result: Sue, Bob, Tim
-    // Defect(s) Found: It wasn't removing the higher priority items first
+    // Defect(s) Found: It wasn't removing any items at first, then it wasn't removing
+    // items at all. So I had to first remove the items then fix which ones it removed
     public void TestPriorityQueue_1()
     {
         var bob = new PriorityItem("Bob", 2);
