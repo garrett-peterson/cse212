@@ -11,18 +11,23 @@ public class CustomerService {
         // Test Cases
 
         // Test 1
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: User enters 0 for the queue size
+        // Expected Result: Queue size is 10 long
         Console.WriteLine("Test 1");
+        var cs = new CustomerService(0);
+        Console.WriteLine(cs._maxSize);
 
-        // Defect(s) Found: 
+        // Defect(s) Found: No defects found
 
         Console.WriteLine("=================");
 
         // Test 2
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: Add a customer and then serve that customer
+        // Expected Result: Display the customer entered
         Console.WriteLine("Test 2");
+        var service = new CustomerService(4);
+        service.AddNewCustomer();
+        service.ServeCustomer();
 
         // Defect(s) Found: 
 
