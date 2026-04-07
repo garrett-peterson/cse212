@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Node
 {
     public int Data { get; set; }
@@ -21,6 +23,10 @@ public class Node
             else
                 Left.Insert(value);
         }
+        else if (value == Data)
+        {
+            return;
+        }
         else
         {
             // Insert to the right
@@ -34,12 +40,61 @@ public class Node
     public bool Contains(int value)
     {
         // TODO Start Problem 2
+        if (value == Data)
+        {
+            return true;
+        }
+        else if (value < Data)
+        {
+            if (Left == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Left.Contains(value);
+            }
+        }
+
+        else if (value > Data)
+        {
+            if (Right == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Right.Contains(value);
+            }
+        }
+
         return false;
     }
 
     public int GetHeight()
     {
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+
+        int leftHight = 0;
+        int rightHeight = 0;
+
+        if (Left == null)
+        {
+            leftHight = 0;
+        }
+        else
+        {
+            leftHight += Left.GetHeight();
+        }
+
+        if (Right == null)
+        {
+            rightHeight = 0;
+        }
+        else
+        {
+            rightHeight += Right.GetHeight();
+        }
+        return 1 + Math.Max(leftHight, rightHeight); // Replace this line with the correct return statement(s)
     }
 }
